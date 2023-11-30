@@ -30,45 +30,6 @@ class _UserInterfaceState extends State<UserInterface> {
     }
   }
 
-  /*Future<void> runModel(File image) async {
-    // Preprocess the image and prepare input tensor
-    // TODO: Implement image preprocessing based on your model requirements
-    // ...
-
-    // Run inference
-    try {
-      await _interpreter!.run(
-          inputTensors: {'input': inputTensor},
-          outputTensors: {'output': _output});
-    } catch (e) {
-      print('Error running model: $e');
-    }
-
-    // Postprocess the output tensor
-    // For a binary classification model, you can use a threshold to determine the class
-    double confidenceThreshold = 0.5;
-    String result = _output[1] > confidenceThreshold ? 'TB' : 'No TB';
-
-    // Display the result
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Result'),
-          content: Text('The model predicts: $result'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }*/
-
   Future<void> _pickImage() async {
     final pickedFile =
         await ImagePicker().pickImage(source: ImageSource.gallery);

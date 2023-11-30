@@ -28,10 +28,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  image_picker: ^0.8.3
-  tflite_flutter: ^0.10.3
   flutter:
     sdk: flutter
+
+  image:
+  image_picker: ^0.8.3
+  tflite_flutter: ^0.10.3
+  camera: ^0.10.5+5
+  tflite_flutter_helper_plus:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -62,7 +66,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/tb_model.tflite
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
