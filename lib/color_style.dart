@@ -1,47 +1,47 @@
 import 'package:flutter/material.dart';
 
-const kMainFont = 'Roboto';
-const kButtonFont = 'Roboto';
-const kDisplayFont = 'SquadaOne';
+const tbMainFont = 'Roboto-Light';
+const kButtonFont = 'ContrailOne-Regular';
+const tbDisplayFont = 'SquadaOne-Regular';
 
-const kColorGreen = Color(0xFF395144);
-const kColorLightGreen = Color(0XFF4E6C50);
-const kColorBrown = Color(0XFFAA8B56);
-const kColorLightYellow = Color(0xFFF0EBCE);
+const tbColorSkyBlue = Color(0xFFade8f4);
+const tbColorDarkGreen = Color(0xFF4E6C50);
+const tbColorDarkBlue = Color(0xFF0077b6);
+const tbColorBlackBlue = Color(0xFF000814);
 
-const kColorRed = Color(0xFFD96666);
-const kColorLightRed = Color(0xFFF2CECE);
-const kColorLightGray = Color(0xFFDDDDDD);
+const tbColorRed = Color(0xFFD96666);
+const tbColorLightRed = Color(0xFFF2CECE);
+const tbColorLightGray = Color(0xFFDDDDDD);
 
-const kColorHunterGreen = Color(0xFF386641);
-const kColorMayGreen = Color(0xFF6a994e);
-const kColorAndroidGreen = Color(0xFFa7c957);
-const kColorEggshell = Color(0xFFf2e8cf);
-const kColorBitterSweetShimmer = Color(0xFFbc4749);
+const tbColorHunterGreen = Color(0xFF386641);
+const tbColorPlantGreen = Color(0xFF6a994e);
+const tbColorNavyBlue = Color(0xFF03045e);
+const tbColorEggshell = Color(0xFFf2e8cf);
+const tbColorBitterSweetShimmer = Color(0xFFbc4749);
 
-const kBgColor = kColorGreen;
+const tbBackgroundColor = tbColorSkyBlue;
 
-const kTitleTextStyle = TextStyle(
-  fontFamily: kDisplayFont,
-  fontSize: 50.0,
-  color: kColorAndroidGreen,
+const tbTitleTextStyle = TextStyle(
+  fontFamily: tbDisplayFont,
+  fontSize: 60.0,
+  color: tbColorNavyBlue,
   decoration: TextDecoration.none,
 );
 
-const kAnalyzingTextStyle = TextStyle(
-    fontFamily: kMainFont,
-    fontSize: 25.0,
-    color: kColorEggshell,
+const tbAnalyzingTextStyle = TextStyle(
+    fontFamily: tbMainFont,
+    fontSize: 30.0,
+    color: tbColorEggshell,
     decoration: TextDecoration.none);
 
-const kResultTextStyle = TextStyle(
-    fontFamily: kDisplayFont,
-    fontSize: 35.0,
-    color: kColorLightYellow,
+const tbResultTextStyle = TextStyle(
+    fontFamily: tbDisplayFont,
+    fontSize: 40.0,
+    color: tbColorBlackBlue,
     decoration: TextDecoration.none);
 
-const kResultRatingTextStyle = TextStyle(
-    fontFamily: kMainFont,
-    fontSize: 18.0,
-    color: Colors.white,
+const tbResultRatingTextStyle = TextStyle(
+    fontFamily: tbMainFont,
+    fontSize: 20.0,
+    color: tbColorBlackBlue,
     decoration: TextDecoration.none);

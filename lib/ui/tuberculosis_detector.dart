@@ -1,38 +1,37 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:tb_detector/tb_photo_view.dart';
+import 'package:tb_detector/ui/tb_photo_view.dart';
 import 'package:image/image.dart' as img;
-import 'classifier/classifier.dart';
-import 'color_style.dart';
+import '../classifier/classifier.dart';
+import '../color_style.dart';
 
-const _labelsFileName = 'assets/labels.txt';
-const _modelFileName = 'tb_model.tflite';
+const labelLocation = 'assets/tflite_model/labels.txt';
+const modelName = 'tb_model.tflite';
 
-class UserInterface extends StatefulWidget {
-  const UserInterface({super.key});
+class TuberculosisDetector extends StatefulWidget {
+  const TuberculosisDetector({super.key});
 
   @override
-  State<UserInterface> createState() => _UserInterfaceState();
+  State<TuberculosisDetector> createState() => _TuberculosisDetectorState();
 }
 
-enum _ResultStatus {
+enum ResultStatus {
   notStarted,
   notFound,
   found,
 }
 
-class _UserInterfaceState extends State<UserInterface> {
+class _TuberculosisDetectorState extends State<TuberculosisDetector> {
   late Classifier? _classifier;
-  //final _imagePicker = ImagePicker();
   bool _isAnalyzing = false;
   final picker = ImagePicker();
   File? _selectedImageFile;
 
   // Result
-  _ResultStatus _resultStatus = _ResultStatus.notStarted;
-  String _plantLabel = ''; // Name of Error Message
-  double _accuracy = 0.0;
+  ResultStatus _resultStatus = ResultStatus.notStarted;
+  String _tbLabel = ''; // Name of Error Message
+  double _tbAccuracy = 0.0;
 
   @override
   void initState() {
@@ -43,48 +42,41 @@ class _UserInterfaceState extends State<UserInterface> {
   Future<void> _loadClassifier() async {
     debugPrint(
       'Start loading of Classifier with '
-      'labels at $_labelsFileName, '
-      'model at $_modelFileName',
+      'labels at $labelLocation, '
+      'model at $modelName',
     );
     final classifier = await Classifier.loadWith(
-      labelsFileName: _labelsFileName,
-      modelFileName: _modelFileName,
+      labelFileName: labelLocation,
+      modelFileName: modelName,
     );
     _classifier = classifier;
   }
 
-  /*Future<void> _pickImage() async {
-    final pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-
-    if (pickedFile != null) {
-      setState(() {
-        _image = File(pickedFile.path);
-      });
-    }
-  }*/
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: kBgColor,
+      color: tbBackgroundColor,
       width: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.only(top: 30),
-            child: _buildTitle(),
+          const Spacer(
+            flex: 1,
           ),
-          const SizedBox(height: 20),
+          _buildTitle(),
+          const SizedBox(height: 60),
           _buildPhotolView(),
-          const SizedBox(height: 10),
+          const SizedBox(height: 30),
           _buildResultView(),
-          const Spacer(flex: 5),
+          const SizedBox(
+            height: 20,
+          ),
           _buildPickPhotoButton(
             title: 'Take a photo',
             source: ImageSource.camera,
+          ),
+          const SizedBox(
+            height: 20,
           ),
           _buildPickPhotoButton(
             title: 'Pick from gallery',
@@ -110,13 +102,13 @@ class _UserInterfaceState extends State<UserInterface> {
     if (!_isAnalyzing) {
       return const SizedBox.shrink();
     }
-    return const Text('Analyzing...', style: kAnalyzingTextStyle);
+    return const Text('Analyzing...', style: tbAnalyzingTextStyle);
   }
 
   Widget _buildTitle() {
     return const Text(
-      'TB Detector',
-      style: kTitleTextStyle,
+      'Tuberculosis Prediction Tool',
+      style: tbTitleTextStyle,
       textAlign: TextAlign.center,
     );
   }
@@ -125,21 +117,21 @@ class _UserInterfaceState extends State<UserInterface> {
     required ImageSource source,
     required String title,
   }) {
-    return TextButton(
-      onPressed: () => _onPickPhoto(source),
-      child: Container(
-        width: 300,
-        height: 50,
-        color: kColorBrown,
-        child: Center(
-            child: Text(title,
-                style: const TextStyle(
-                  fontFamily: kButtonFont,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w600,
-                  color: kColorLightYellow,
-                ))),
-      ),
+    return Material(
+      elevation: 5,
+      borderRadius: BorderRadius.circular(36.0),
+      color: tbColorDarkBlue,
+      child: MaterialButton(
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          minWidth: MediaQuery.of(context).size.width / 1.5,
+          onPressed: () => _onPickPhoto(source),
+          child: Text(title,
+              style: const TextStyle(
+                fontFamily: kButtonFont,
+                fontSize: 20.0,
+                fontWeight: FontWeight.w600,
+                color: tbColorBlackBlue,
+              ))),
     );
   }
 
@@ -172,8 +164,8 @@ class _UserInterfaceState extends State<UserInterface> {
     final resultCategory = _classifier!.predict(imageInput);
 
     final result = resultCategory.score >= 0.8
-        ? _ResultStatus.found
-        : _ResultStatus.notFound;
+        ? ResultStatus.found
+        : ResultStatus.notFound;
     final plantLabel = resultCategory.label;
     final accuracy = resultCategory.score;
 
@@ -181,33 +173,33 @@ class _UserInterfaceState extends State<UserInterface> {
 
     setState(() {
       _resultStatus = result;
-      _plantLabel = plantLabel;
-      _accuracy = accuracy;
+      _tbLabel = plantLabel;
+      _tbAccuracy = accuracy;
     });
   }
 
   Widget _buildResultView() {
     var title = '';
 
-    if (_resultStatus == _ResultStatus.notFound) {
+    if (_resultStatus == ResultStatus.notFound) {
       title = 'Failed to recognise';
-    } else if (_resultStatus == _ResultStatus.found) {
-      title = _plantLabel;
+    } else if (_resultStatus == ResultStatus.found) {
+      title = _tbLabel;
     } else {
       title = '';
     }
 
     //
     var accuracyLabel = '';
-    if (_resultStatus == _ResultStatus.found) {
-      accuracyLabel = 'Accuracy: ${(_accuracy * 100).toStringAsFixed(2)}%';
+    if (_resultStatus == ResultStatus.found) {
+      accuracyLabel = 'Accuracy: ${(_tbAccuracy * 100).toStringAsFixed(2)}%';
     }
 
     return Column(
       children: [
-        Text(title, style: kResultTextStyle),
+        Text(title, style: tbResultTextStyle),
         const SizedBox(height: 10),
-        Text(accuracyLabel, style: kResultRatingTextStyle)
+        Text(accuracyLabel, style: tbResultRatingTextStyle)
       ],
     );
   }

@@ -21,11 +21,11 @@ class Classifier {
         _model = model;
 
   static Future<Classifier?> loadWith({
-    required String labelsFileName,
+    required String labelFileName,
     required String modelFileName,
   }) async {
     try {
-      final labels = await _loadLabels(labelsFileName);
+      final labels = await _loadLabels(labelFileName);
       final model = await _loadModel(modelFileName);
       return Classifier._(labels: labels, model: model);
       return null;

@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'color_style.dart';
+import '../color_style.dart';
 
 class TbPhotoView extends StatelessWidget {
   final File? file;
@@ -22,7 +22,7 @@ class TbPhotoView extends StatelessWidget {
     return const Center(
         child: Text(
       'Please pick a photo',
-      style: kAnalyzingTextStyle,
+      style: tbAnalyzingTextStyle,
     ));
   }
 }
