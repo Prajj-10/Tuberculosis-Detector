@@ -66,7 +66,7 @@ class _TuberculosisDetectorState extends State<TuberculosisDetector> {
           _buildTitle(),
           const SizedBox(height: 60),
           _buildPhotolView(),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           _buildResultView(),
           const SizedBox(
             height: 20,
@@ -79,7 +79,7 @@ class _TuberculosisDetectorState extends State<TuberculosisDetector> {
             height: 20,
           ),
           _buildPickPhotoButton(
-            title: 'Pick from gallery',
+            title: 'Choose from gallery',
             source: ImageSource.gallery,
           ),
           const Spacer(),

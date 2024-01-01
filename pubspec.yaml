@@ -45,6 +45,24 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.11.0"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icons/android/android_icon.png"
+  min_sdk_android: 26
+  web:
+    generate: true
+    image_path: "assets/icons/web/icon-512.png"
+  windows:
+    generate: true
+    image_path: "assets/icons/web/icon-512.png"
+  macos:
+    generate: true
+    image_path: "assets/icons/web/icon-512.png"
+
   flutter_test:
     sdk: flutter
 
@@ -63,14 +81,27 @@ flutter:
   fonts:
     - family: Roboto-Light
       fonts:
-        - asset: assets/fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto/Roboto-Light.ttf
     - family: SquadaOne-Regular
       fonts:
-        - asset: assets/fonts/SquadaOne-Regular.ttf
+        - asset: assets/fonts/Squada One/SquadaOne-Regular.ttf
     - family: ContrailOne-Regular
       fonts:
-        - asset: assets/fonts/ContrailOne-Regular.ttf
-
+        - asset: assets/fonts/Contrail One/ContrailOne-Regular.ttf
+    - family: Work Sans
+      fonts:
+        - asset: assets/fonts/Work Sans/WorkSans-Bold.ttf
+        - asset: assets/fonts/Work Sans/WorkSans-Black.ttf
+        - asset: assets/fonts/Work Sans/WorkSans-Light.ttf
+        - asset: assets/fonts/Work Sans/WorkSans-Thin.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins/Poppins-Black.ttf
+        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+        - asset: assets/fonts/Poppins/Poppins-ExtraLight.ttf
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

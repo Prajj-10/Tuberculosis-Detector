@@ -9,9 +9,9 @@ class TbPhotoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
-      height: 250,
-      color: Colors.blueGrey,
+      width: 350,
+      height: 350,
+      color: Color(0xFF5FA8D3),
       child: (file == null)
           ? _buildEmptyView()
           : Image.file(file!, fit: BoxFit.cover),
@@ -21,7 +21,7 @@ class TbPhotoView extends StatelessWidget {
   Widget _buildEmptyView() {
     return const Center(
         child: Text(
-      'Please pick a photo',
+      'Load your image here',
       style: tbAnalyzingTextStyle,
     ));
   }
