@@ -1,9 +1,12 @@
+// Importing necessary Dart and Flutter packages
 import 'package:flutter/material.dart';
 
+// Custom Font styles loaded from assets
 const tbMainFont = 'Poppins-Bold';
 const kButtonFont = 'WorkSans-Black';
 const tbDisplayFont = 'Poppins-Bold';
 
+// Custom Colors
 const tbColorSkyBlue = Color(0xFFCAE9FF); // Main Background Color
 const tbColorDarkGreen = Color(0xFF4E6C50);
 const tbColorDarkBlue = Color(0xFF62B6CB); // Button Color
@@ -19,8 +22,10 @@ const tbColorNavyBlue = Color(0xFF03045e);
 const tbColorEggshell = Color(0xFFf2e8cf);
 const tbColorBitterSweetShimmer = Color(0xFFbc4749);
 
+// Background color for the app
 const tbBackgroundColor = tbColorSkyBlue;
 
+// Text styles
 const tbTitleTextStyle = TextStyle(
   fontFamily: tbDisplayFont,
   fontSize: 60.0,

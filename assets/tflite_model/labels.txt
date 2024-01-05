@@ -1,2 +1,2 @@
-0 No Tuberculosis
-1 Tuberculosis
+0 Tuberculosis
+1 No Tuberculo...
