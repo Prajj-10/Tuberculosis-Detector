@@ -23,13 +23,31 @@ The application predicts and gives three different outputs :
 - **No Tuberculosis**: If the model predicts No Tuberculosis with more than 80% accuracy.
 - **Failed to Recognize**: If the model predicts Tuberculosis / No Tuberculosis with less than 80% accuracy.
 <p align="center">
-  <img src="./App Screenshots/TB.jpg" alt="TB Prediction" width="300" height="600">
+  <img src="./App Screenshots/TB.jpg" alt="TB Prediction" width="500" height="900">
   <img src="./App Screenshots/No TB.jpg" alt="No TB Prediction" width="300" height="600">
   <img src="./App Screenshots/Failed.jpg" alt="Failed To Recognize" width="300" height="600">
 </p>
 
-## Software Framework: 
+## Model Training
+The model was trained in Teachable Machine. The data was collected from NLM (National Library of Medicine). All of the references are appropriately linked in my final thesis.
 <p align="center">
-<img src="./Report Images/Picture1.png" alt="Software Framework" width="600" height="600" background=white>
+  <img src="./Report Images/Overall Image.png" alt="Teachable Machine Interface" width="1000" height="600">
 </p>
+Model Accuracy :
+  <img src="./Report Images/Accuracy.png" alt="Model Accuracy" width="500" height="400">
+Confusion Matrix:
+  <img src="./Report Images/Confusion Matrix.png" alt="Confusion Matrix" width="300" height="300">
+
+## Software Framework: 
+The Software Framework explains how the application works and how the model is being used in the application. 
+<p align="center">
+  <img src="./Report Images/SoftwareFramework.png" alt="Software Framework" width="600" height="600">
+</p>
+
+## Academic Poster
+As this project was made as a Final Year Project, this project was also presented at CAN-Info Tech 2024, Nepal
+<p align="center">
+  <img src="./Report Images/Academic Poster.PNG" alt="Academic Poster" width="1100" height="800">
+</p>
+If you want to read more about my thesis, click <a href="https://drive.google.com/file/d/1oma4LrwgsUm2MT13KIkdqHJxocQ124ea/view?usp=drive_link"> here </a>
 
