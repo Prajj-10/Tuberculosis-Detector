@@ -1,16 +1,10 @@
-# tb_detector
+# Tuberculosis Prediction Application
 
-a mobile app to detect tb
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+Tuberculosis Prediction is an offline mobile application that is created to assist doctors in rural areas of Nepal that have limited access to resources and distant Tuberculosis Hospitals.
+This is my final year project where I researched about Tuberculosis in Nepal and how a TB prediction application can assist doctors in rural areas.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
